@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>關於中獎號碼的產生</title>
+
+    <style>
+      body
+      {
+        background-color: Black;
+      }
+      
+    </style>
+  </head>
+  <body>
+    
+    <script>
+      var lott_list = [];
+      var roll_num;
+      var ref;
+
+      while (lott_list.length<7)
+      {
+        roll_num = parseInt(1 + Math.random() * 38);
+
+        if(!lott_list.includes(roll_num) && lott_list.length<6)
+        {
+          lott_list.push(roll_num);
+
+          ref = document.createElement('div');
+          ref.id = 's1.' + roll_num.toString().padStart(2, '0');
+          ref.innerHTML = roll_num.toString().padStart(2, '0');
+
+          with (ref.style)
+          {
+            fontWeight = 'bold';
+            fontSize = '36px';
+            
+            color = '#2980B9';
+
+            backgroundColor = '#2ECC71';
+
+            width = '100px';
+            height = '100px';
+            lineHeight = '100px';
+            textAlign = 'center';
+            borderRadius = '5px';
+            float = 'left';
+            margin = '5px';
+          }
+        }
+        else if(lott_list.length == 6)
+        {
+          roll_num = parseInt(1 + Math.random() * 8);
+          lott_list.push(roll_num);
+
+          ref = document.createElement('div');
+          ref.id = 'spec';
+          ref.innerHTML = roll_num.toString().padStart(2, '0');
+
+          with (ref.style)
+          {
+            fontWeight = 'bold';
+            fontSize = '36px';
+            
+            color = '#F8C471';
+
+            backgroundColor = '#E74C3C';
+
+            width = '100px';
+            height = '100px';
+            lineHeight = '100px';
+            textAlign = 'center';
+            borderRadius = '5px';
+            float = 'left';
+            margin = '5px';
+          }
+        }
+
+        
+
+        console.log(lott_list);
+
+        document.body.append(ref);
+
+      }
+
+
+
+
+    </script>
+  </body>
+</html>
